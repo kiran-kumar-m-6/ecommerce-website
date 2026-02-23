@@ -1,4 +1,4 @@
-import Flex from "@/components/atom/Flex/Flex";
+import { Flex } from "@/components/atom";
 import CafeLoginOrganism from "@/components/pages/CafeComponent/CafeLoginOrganism";
 
 export default function CafeLoginComponent() {
