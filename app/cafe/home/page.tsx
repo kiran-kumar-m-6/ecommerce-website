@@ -8,6 +8,8 @@ import { PopUpData } from "@/Data/PopUpData/Cafe/PopUpData";
 import { useState } from "react";
 import BluThirdPartySection from "@/components/organisms/BluThirdPartySection/BluThirdPartySection";
 import CartPage from "@/components/pages/CartPage/CartPage";
+import { Accordion } from "../pages/Accordion/Accordion";
+import { AccordionData } from "@/Data/AccordionData/AccordionData";
 
 export default function CafeHome() {
   const [cartView, setCartView] = useState(false);
@@ -19,6 +21,7 @@ export default function CafeHome() {
       <ProductGrid data={productData} />
       <CartPage open={cartView} onClose={() => setCartView(false)} />
       <BluThirdPartySection />
+      <Accordion data={AccordionData} />
     </div>
   );
 }

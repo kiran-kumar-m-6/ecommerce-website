@@ -11,12 +11,14 @@ type Props = {
   data: AccordionProps[];
 };
 
-export default function Accordion({ data }: Props) {
+export const Accordion = ({ data }: Props) => {
   const [openId, setOpenId] = useState<number | null>(null);
 
-  const toggle = (id: number) => {
+  const toggleSwitch = (id: number) => {
     setOpenId((prev) => (prev === id ? null : id));
   };
+
+  if (!data) return null;
 
   return (
     <div className="p-6 md:p-16">
@@ -24,21 +26,18 @@ export default function Accordion({ data }: Props) {
         {data.map((item) => (
           <div key={item.id} className="border-b border-gray-300">
             <button
-              onClick={() => toggle(item.id)}
-              className="w-full flex justify-between items-center py-5 text-left text-blue-950 uppercase"
+              onClick={() => toggleSwitch(item.id)}
+              className="w-full flex justify-between items-center py-4 text-left text-blue-950 uppercase"
             >
               <h1 className="font-extrabold text-2xl">{item.question}</h1>
-
-              <span
-                className={`text-3xl transition-transform duration-300`}
-              >
+              <span className="text-3xl">
                 {openId === item.id ? "-" : "+"}
               </span>
             </button>
             <div
-              className={`overflow-hidden transition-all duration-300 ${
+              className={`overflow-hidden ${
                 openId === item.id
-                  ? "max-h-40 opacity-100"
+                  ? "max-h-max opacity-100"
                   : "max-h-0 opacity-0"
               }`}
             >
@@ -51,4 +50,4 @@ export default function Accordion({ data }: Props) {
       </div>
     </div>
   );
-}
+};
