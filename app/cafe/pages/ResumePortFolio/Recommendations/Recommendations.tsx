@@ -9,12 +9,11 @@ export default function Recommendations({ data }: Props) {
   return (
     <div className="pt-[70px]" id="target-education">
       <div className="text-center grid justify-center">
-        <h2
-          className="font-bold capitalize text-[#2B2B2B] dark:text-white text-lg sm:text-3xl md:text-4xl lg:text-5xl" >
+        <h2 className="font-bold capitalize text-[#2B2B2B] dark:text-white text-lg sm:text-3xl md:text-4xl lg:text-5xl">
           recommendations
         </h2>
 
-        <p className="text-[#767676] dark:text-gray-400 text-center pt-4 max-w-[438px] capitalize" >
+        <p className="text-[#767676] dark:text-gray-400 text-center pt-4 max-w-[438px] capitalize">
           Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
           sint. Velit officia consequat duis enim velit mollit. Lorem ipsum
         </p>
@@ -46,13 +45,13 @@ export default function Recommendations({ data }: Props) {
 
               <div className="grid justify-center align-middle sm:justify-center md:flex items-center gap-[13px]">
                 <div className="flex justify-center">
-                <Icon
-                  src={review.reviewerImage ?? ""}
-                  alt={review.reviewerName ?? "Reviewer Image"}
-                  width={80}
-                  height={80}
-                  className="object-scale-down shrink-0"
-                />
+                  <Icon
+                    src={review.reviewerImage ?? ""}
+                    alt={review.reviewerName ?? "Reviewer Image"}
+                    width={80}
+                    height={80}
+                    className="object-scale-down shrink-0"
+                  />
                 </div>
                 <div className="flex flex-col justify-center leading-tight">
                   <h4 className="font-semibold text-center md:text-left text-[#2B2B2B] dark:text-white m-0">
