@@ -20,7 +20,6 @@ export const SearchBar = ({ onSearch }: Props) => {
       <h1 className="text-5xl text-white text-center">
         How's the sky looking today?
       </h1>
-
       <form onSubmit={onSubmit}>
         <div className="flex justify-center flex-wrap gap-5 pt-16 pb-6">
           <input

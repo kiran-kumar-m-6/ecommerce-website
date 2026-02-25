@@ -9,11 +9,14 @@ type Props = {
   loading: boolean;
 };
 
-const mapCodeToIcon = (code: number) => {
-  if (code === 0) return "/icon-sunny.webp";
-  if (code <= 3) return "/icon-partly-cloudy.webp";
-  if (code <= 67) return "/icon-rain.webp";
-  return "/icon-overcast.webp";
+const mapCodeToIcon = (code: number): string => {
+  const rules = [
+    { condition: code === 0, icon: "/icon-sunny.webp" },
+    { condition: code <= 3,  icon: "/icon-partly-cloudy.webp" },
+    { condition: code <= 67, icon: "/icon-rain.webp" },
+  ];
+
+  return rules.find(rule => rule.condition)?.icon ?? "/icon-overcast.webp";
 };
 
 export const DailyForeCast = ({ weather, loading }: Props) => {
@@ -40,27 +43,18 @@ export const DailyForeCast = ({ weather, loading }: Props) => {
   }
 
   const daily = weather.daily?.();
-  console.log("Daily", daily);
   const start = Number(daily.time());
-  console.log("Time start", start);
-  console.log("Time End", Number(daily.timeEnd()));
   const interval = daily.interval();
-  console.log("interval", interval);
   const count = (Number(daily.timeEnd()) - start) / interval;
-  console.log("count of days number", count);
 
   const times = Array.from(
     { length: count },
     (_, i) => new Date((start + i * interval) * 1000),
   );
 
-  console.log("Here is the daily: ", daily);
   const maxTemps = daily.variables(0)!.valuesArray();
-  console.log("Maximum temperature", maxTemps);
   const minTemps = daily.variables(1)!.valuesArray();
-  console.log("Minmum temperature", minTemps);
   const codes = daily.variables(2)?.valuesArray?.() || [];
-  console.log("Codes of the weather", codes);
 
   return (
     <div className="w-full">
@@ -71,7 +65,7 @@ export const DailyForeCast = ({ weather, loading }: Props) => {
           </h1>
 
           <div className="flex flex-wrap gap-3 justify-center items-center">
-            {times.map((date, index) => (
+            {times?.map((date, index) => (
               <div
                 key={index}
                 className="bg-gray-700 py-2 px-3 rounded-lg min-w-[100px]"

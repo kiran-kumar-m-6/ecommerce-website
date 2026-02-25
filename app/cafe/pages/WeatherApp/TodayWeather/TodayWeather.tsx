@@ -17,12 +17,11 @@ export const TodayWeather = ({ location, weather, loading }: Props) => {
       </div>
     );
   }
+
   const current = weather.current()!;
   const temperature = Math.floor(current.variables(0)!.value());
   const utcOffsetSeconds = weather.utcOffsetSeconds();
-
   const apiDate = new Date((Number(current.time()) + utcOffsetSeconds) * 1000);
-
   const day = apiDate.toLocaleDateString("en-US", { weekday: "long" });
   const date = apiDate.toLocaleDateString("en-US", {
     day: "2-digit",
@@ -44,7 +43,6 @@ export const TodayWeather = ({ location, weather, loading }: Props) => {
               {day}, {date}
             </p>
           </div>
-
           <div>
             <h1 className="text-white text-6xl font-bold">{temperature}°</h1>
           </div>

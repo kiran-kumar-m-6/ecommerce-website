@@ -22,11 +22,14 @@ const DAYS = [
 ] as const;
 type Day = (typeof DAYS)[number];
 
-const mapCodeToIcon = (code: number) => {
-  if (code === 0) return "/icon-sunny.webp";
-  if (code <= 3) return "/icon-partly-cloudy.webp";
-  if (code <= 67) return "/icon-rain.webp";
-  return "/icon-overcast.webp";
+const mapCodeToIcon = (code: number): string => {
+  const rules = [
+    { condition: code === 0, icon: "/icon-sunny.webp" },
+    { condition: code <= 3,  icon: "/icon-partly-cloudy.webp" },
+    { condition: code <= 67, icon: "/icon-rain.webp" },
+  ];
+
+  return rules.find(rule => rule.condition)?.icon ?? "/icon-overcast.webp";
 };
 
 export const HourlyForeCast = ({ weather, loading }: Props) => {
@@ -76,7 +79,7 @@ export const HourlyForeCast = ({ weather, loading }: Props) => {
       </div>
     );
   }
-
+  
   const selectedIndices = hourlyTemperatureByDay[selectedDay] ?? [];
 
   return (

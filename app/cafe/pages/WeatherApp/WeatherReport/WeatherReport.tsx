@@ -28,10 +28,9 @@ export const WeatherReport = ({ weather, loading }: Props) => {
   const humidityArr = weather.hourly?.()?.variables(0)?.valuesArray?.();
   const humidity = humidityArr?.[0] != null ? Math.round(humidityArr[0]) : 0;
   const wind = Math.round(current?.variables?.(1)?.value?.() ?? 0);
-  const precipitationArr = weather.hourly?.()?.variables(1)?.valuesArray?.();
-
+  const precipitationArray = weather.hourly?.()?.variables(1)?.valuesArray?.();
   const precipitation =
-    precipitationArr?.[0] != null ? Math.round(precipitationArr[0]) : 0;
+    precipitationArray?.[0] != null ? Math.round(precipitationArray[0]) : 0;
 
   return (
     <div className="flex flex-wrap justify-center gap-4 py-6">
