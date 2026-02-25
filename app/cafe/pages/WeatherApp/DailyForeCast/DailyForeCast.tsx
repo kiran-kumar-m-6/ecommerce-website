@@ -65,7 +65,7 @@ export const DailyForeCast = ({ weather, loading }: Props) => {
           </h1>
 
           <div className="flex flex-wrap gap-3 justify-center items-center">
-            {times?.map((date, index) => (
+            {(times ?? []).map((date, index) => (
               <div
                 key={index}
                 className="bg-gray-700 py-2 px-3 rounded-lg min-w-[100px]"
