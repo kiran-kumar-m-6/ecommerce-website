@@ -12,7 +12,7 @@ type Props = {
 
 export const WeatherMetrics = ({ weather, loading, weatherMetrics }: Props) => {
 
-  let SKELTON_COUNT = weatherMetrics?.length ?? 4;
+  const SKELTON_COUNT = weatherMetrics?.length ?? 4;
 
   if (loading || !weather) {
     return (

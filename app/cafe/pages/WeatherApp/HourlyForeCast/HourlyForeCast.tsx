@@ -24,6 +24,8 @@ const DAYS = [
 ];
 type Day = (typeof DAYS)[number];
 
+const SKELTON_COUNT = 8;
+
 const mapCodeToIcon = (code: number): string => {
   const rules = [
     { condition: code === 0, icon: "/icon-sunny.webp" },
@@ -71,7 +73,6 @@ const setIcons =
     return result;
   }, [times]);
 
-  const SKELTON_COUNT = 8;
 
   if (loading || !weather) {
     return (
