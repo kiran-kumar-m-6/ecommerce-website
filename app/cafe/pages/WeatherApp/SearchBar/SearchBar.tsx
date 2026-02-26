@@ -1,4 +1,5 @@
 "use client";
+import { Flex } from "@/components/atom";
 import { useState } from "react";
 
 type Props = {
@@ -21,7 +22,7 @@ export const SearchBar = ({ onSearch }: Props) => {
         How's the sky looking today?
       </h1>
       <form onSubmit={onSubmit}>
-        <div className="flex justify-center flex-wrap gap-5 pt-16 pb-6">
+        <Flex className="justify-center flex-wrap gap-5 pt-16 pb-6">
           <input
             type="text"
             className="py-2 pl-3 w-full max-w-[450px] rounded-lg bg-gray-600 text-white border-0 outline-none"
@@ -36,7 +37,7 @@ export const SearchBar = ({ onSearch }: Props) => {
           >
             Search
           </button>
-        </div>
+        </Flex>
       </form>
     </div>
   );

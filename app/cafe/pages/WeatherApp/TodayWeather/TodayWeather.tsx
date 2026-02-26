@@ -1,27 +1,29 @@
 "use client";
+import type { WeatherApiResponse } from "@openmeteo/sdk/weather-api-response";
+import { Flex } from "@/components/atom";
 
 type Props = {
   location?: {
     city: string;
     country: string;
   };
-  weather?: any;
+  weather?: WeatherApiResponse;
   loading: boolean;
 };
 
 export const TodayWeather = ({ location, weather, loading }: Props) => {
   if (loading || !weather || !location) {
     return (
-      <div className="flex justify-center">
+      <Flex className="justify-center">
         <div className="w-full max-w-[784px] h-[200px] rounded-3xl bg-gray-700 " />
-      </div>
+      </Flex>
     );
   }
 
-  const current = weather.current()!;
-  const temperature = Math.floor(current.variables(0)!.value());
+  const currentWeather = weather.current()!;
+  const temperature = Math.floor(currentWeather.variables(0)!.value());
   const utcOffsetSeconds = weather.utcOffsetSeconds();
-  const apiDate = new Date((Number(current.time()) + utcOffsetSeconds) * 1000);
+  const apiDate = new Date((Number(currentWeather.time()) + utcOffsetSeconds) * 1000);
   const day = apiDate.toLocaleDateString("en-US", { weekday: "long" });
   const date = apiDate.toLocaleDateString("en-US", {
     day: "2-digit",
@@ -29,12 +31,12 @@ export const TodayWeather = ({ location, weather, loading }: Props) => {
   });
 
   return (
-    <div className="flex justify-center">
+    <Flex className="justify-center">
       <div
         style={{ backgroundImage: `url('/bg-today-large.svg')` }}
-        className="bg-cover bg-center flex flex-col justify-center w-full max-w-[784px] h-[200px] rounded-3xl"
+        className="bg-cover bg-center grid w-full max-w-[784px] h-[200px] rounded-3xl"
       >
-        <div className="flex justify-between items-center px-6">
+        <Flex className="justify-between items-center px-6">
           <div>
             <h3 className="capitalize text-white text-lg">
               {location.city}, {location.country}
@@ -46,8 +48,8 @@ export const TodayWeather = ({ location, weather, loading }: Props) => {
           <div>
             <h1 className="text-white text-6xl font-bold">{temperature}°</h1>
           </div>
-        </div>
+        </Flex>
       </div>
-    </div>
+    </Flex>
   );
 };

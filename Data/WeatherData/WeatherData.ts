@@ -160,3 +160,19 @@ export const HourlyForeCastData = [
     temprature: 17,
   },
 ];
+
+
+export const WeatherMetricsData = [
+  {
+    metricType: "Feels Like",
+  },
+  {
+    metricType: "Humidity",
+  },
+  {
+    metricType: "Wind",
+  },
+  {
+    metricType: "Precipitation",
+  },
+];

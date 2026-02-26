@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Button, Icon } from "@/components/atom";
-import { NavBarType } from "@/Data/Type/WeatherApp/NavBar";
+import { Button, Flex, Icon } from "@/components/atom";
+import { NavBarType } from "@/Data/Type/WeatherApp/WeatherAppTypes"; 
 
 type Props = {
   logo?: string;
@@ -12,14 +12,12 @@ export const NavBar = ({ logo, data }: Props) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <div className="relative">
-      <div className="flex items-center justify-between py-6 px-10">
+      <Flex className="relative items-center justify-between py-6 px-10">
         <Icon
           src={logo ?? "/logo.svg"}
           alt="Weather Now"
-          height={200}
+          height={41}
           width={200}
-          className="object-scale-down"
         />
         <div className="relative">
           <Button
@@ -29,7 +27,7 @@ export const NavBar = ({ logo, data }: Props) => {
           />
           {openMenu && (
             <div className="absolute right-0 mt-2 z-50 w-[260px]">
-              {data.map((group, index) => (
+              {(data ?? []).map((group, index) => (
                 <div
                   key={index}
                   className="bg-gray-700 rounded-xl px-4 py-3 shadow-lg"
@@ -41,9 +39,9 @@ export const NavBar = ({ logo, data }: Props) => {
                     </h4>
 
                     {group.temprature?.map((item) => (
-                      <div
+                      <Flex
                         key={item.label}
-                        className={`flex items-center justify-between rounded-md ${
+                        className={`items-center justify-between rounded-md ${
                           item.isOpen ? "bg-gray-500" : "hover:bg-gray-600"
                         }`}
                       >
@@ -53,7 +51,7 @@ export const NavBar = ({ logo, data }: Props) => {
                         {item.isOpen && (
                           <span className="text-white pr-2">✓</span>
                         )}
-                      </div>
+                      </Flex>
                     ))}
                   </div>
                   <div className="border-b border-gray-500 py-3">
@@ -62,9 +60,9 @@ export const NavBar = ({ logo, data }: Props) => {
                     </h4>
 
                     {group.windSpeed?.map((item) => (
-                      <div
+                      <Flex
                         key={item.label}
-                        className={`flex items-center justify-between rounded-md ${
+                        className={`items-center justify-between rounded-md ${
                           item.isOpen ? "bg-gray-500" : "hover:bg-gray-600"
                         }`}
                       >
@@ -74,7 +72,7 @@ export const NavBar = ({ logo, data }: Props) => {
                         {item.isOpen && (
                           <span className="text-white pr-2">✓</span>
                         )}
-                      </div>
+                      </Flex>
                     ))}
                   </div>
                   <div className="py-3">
@@ -83,9 +81,9 @@ export const NavBar = ({ logo, data }: Props) => {
                     </h4>
 
                     {group.precipitation?.map((item) => (
-                      <div
+                      <Flex
                         key={item.label}
-                        className={`flex items-center justify-between rounded-md ${
+                        className={`items-center justify-between rounded-md ${
                           item.isOpen ? "bg-gray-500" : "hover:bg-gray-600"
                         }`}
                       >
@@ -95,7 +93,7 @@ export const NavBar = ({ logo, data }: Props) => {
                         {item.isOpen && (
                           <span className="text-white pr-2">✓</span>
                         )}
-                      </div>
+                      </Flex>
                     ))}
                   </div>
                 </div>
@@ -103,7 +101,6 @@ export const NavBar = ({ logo, data }: Props) => {
             </div>
           )}
         </div>
-      </div>
-    </div>
+      </Flex>
   );
 };

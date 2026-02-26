@@ -1,5 +1,5 @@
 import { Icon } from "@/components/atom";
-import { BlogProps } from "@/Data/Type/PortFolio/Blog";
+import { BlogProps } from "@/Data/Type/PortFolio/PortFolioTypes"; 
 
 type Props = {
   data: BlogProps[];
