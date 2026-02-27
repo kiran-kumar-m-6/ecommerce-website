@@ -1,8 +1,8 @@
 import { Button, HeadText, Input, Label, Icon, Flex } from "@/components/atom";
 
-export default function RestaurantLoginOrganism() {
+export default function RestaurantLoginPage() {
   return (
-    <Flex className="flex flex-col items-center gap-4">
+    <Flex className="flex-col items-center gap-4 rounded-xl shadow-lg p-8 bg-white">
       <HeadText content="Restaurant Login" className="text-center" />
       <Flex className="flex-row gap-6">
         <Flex
