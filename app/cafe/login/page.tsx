@@ -1,6 +1,6 @@
 "use client";
 import CafeLoginComponent from "@/components/template/Cafe/CafeLoginComponent";
 
-export default function Cafe() {
+export default function CafeLogin() {
   return <CafeLoginComponent />;
 }

@@ -9,6 +9,7 @@ interface IconProp {
   onClick?: () => void;
   sizes?: string;
   quality?: number;
+  
 }
 
 export function Icon({

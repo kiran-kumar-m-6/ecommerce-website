@@ -27,38 +27,36 @@ export default function ProductGrid({ data }: Props) {
   };
 
   return (
-    <Flex className="bg-white flex-wrap justify-center gap-4 my-5">
+    <Flex className="bg-white flex-wrap justify-center gap-4 my-5 px-3">
       {data.map((item, index) => (
         <Flex
           key={item.id ?? index}
           className="w-[300px] rounded-lg shadow-xl border-black p-5 flex-col gap-3 cursor-pointer"
         >
-          <Flex className="items-start">
-            <Flex className="items-center gap-6">
-              <Flex className="flex-col">
+          <Flex className="items-center gap-6">
+            <Flex className="flex-col">
+              <HeadText
+                content={item.label ?? ""}
+                className="text-sky-500 text-lg font-extrabold"
+              />
+              <Link href={`/cafe/product/${item.id}`}>
                 <HeadText
-                  content={item.label ?? ""}
-                  className="text-sky-500 text-lg font-extrabold"
+                  content={item.flavour ?? ""}
+                  className="text-blue-950 text-xl font-extrabold hover:underline hover:decoration-sky-500"
                 />
-                <Link href={`/cafe/product/${item.id}`}>
-                  <HeadText
-                    content={item.flavour ?? ""}
-                    className="text-blue-950 text-xl font-extrabold hover:underline hover:decoration-sky-500"
-                  />
-                </Link>
-                <HeadText
-                  content={`₹${item.price}`}
-                  className="text-sky-500 text-3xl font-bold"
-                />
-              </Flex>
-              <Icon
-                src={item.image ?? ""}
-                alt={item.flavour ?? ""}
-                className="max-w-[120px] md:max-w-[150px] h-auto"
-                width={120}
-                height={150}
+              </Link>
+              <HeadText
+                content={`₹${item.price}`}
+                className="text-sky-500 text-3xl font-bold"
               />
             </Flex>
+            <Icon
+              src={item.image ?? ""}
+              alt={item.flavour ?? ""}
+              className="max-w-[120px] md:max-w-[150px] h-auto"
+              width={120}
+              height={150}
+            />
           </Flex>
           <ParaText
             content={item.description}
