@@ -1,6 +1,7 @@
-import { Button, Flex, Icon } from "@/components/atom";
-import { LeftMenuProps } from "@/Data/Type/PortFolio/LeftMenu";
 import Link from "next/link";
+import { Button, Flex, Icon } from "@/components/atom";
+import { LeftMenuProps } from "@/Data/Type/PortFolio/PortFolioTypes";
+
 
 type Props = {
   data: LeftMenuProps[];

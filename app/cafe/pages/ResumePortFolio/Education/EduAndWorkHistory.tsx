@@ -1,4 +1,4 @@
-import { EduWorkProps } from "@/Data/Type/PortFolio/EducationAndWork";
+import { EduWorkProps } from "@/Data/Type/PortFolio/PortFolioTypes"; 
 
 type Props = {
   data: EduWorkProps[];

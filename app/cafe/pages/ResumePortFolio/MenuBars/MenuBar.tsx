@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/atom";
-import { RightMenuProps } from "@/Data/Type/PortFolio/RightMenu";
+import { RightMenuProps } from "@/Data/Type/PortFolio/PortFolioTypes";
 
 interface Props {
   data: RightMenuProps[];
