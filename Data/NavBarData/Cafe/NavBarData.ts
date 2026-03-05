@@ -15,6 +15,7 @@ export const NavBarData = [
       { label: "Subscription" },
       { label: "Blog", href: "/cafe/blog" },
       { label: "Portfolio", href: "/cafe/task" },
+      { label: "Weather", href: "/cafe/weather" },
     ],
 
     search: "/search.svg",
