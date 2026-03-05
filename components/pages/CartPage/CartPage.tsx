@@ -17,6 +17,7 @@ export default function CartPage({ open, onClose }: Props) {
       if (open) onClose();
     },
   });
+
   if (!open) return null;
 
   return (

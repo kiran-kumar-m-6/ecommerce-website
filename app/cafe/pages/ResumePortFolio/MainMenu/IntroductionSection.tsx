@@ -1,11 +1,5 @@
 import { Button, Icon } from "@/components/atom";
-
-type MainMenuProps = {
-  image?: string;
-  name?: string;
-  designation?: string;
-  description?: string;
-};
+import { MainMenuProps } from "@/Data/Type/PortFolio/PortFolioTypes";
 
 type Props = {
   data: MainMenuProps;
