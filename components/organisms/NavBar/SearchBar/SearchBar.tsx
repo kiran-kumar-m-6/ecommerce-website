@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import Button from "@/components/atom/Button/Button";
-import Icon from "@/components/atom/Icon/Icon";
-import Input from "@/components/atom/Input/Input";
-import HeadText from "@/components/atom/HeadText/HeadText";
-import ParaText from "@/components/atom/ParaText/ParaText";
-import Flex from "@/components/atom/Flex/Flex";
+import {
+  Button,
+  Icon,
+  Input,
+  HeadText,
+  ParaText,
+  Flex,
+} from "@/components/atom";
 import { useOutsideClick } from "@/hook/useOutSideClick";
 import { Product } from "@/Data/Type/Product/Product";
 
@@ -121,7 +123,7 @@ export default function SearchBar({
               </div>
               <div className="block items-center p-3 ">
                 <ParaText
-                  content={item.description}
+                  content={item.description ?? "description"}
                   className="text-blue-950 text-lg font-semibold w-auto md:w-[300px]"
                 />
               </div>
@@ -143,14 +145,14 @@ export default function SearchBar({
             <div key={item?.id ?? index} className="grid">
               <div>
                 <Icon
-                  src={item.image}
-                  alt={item.name}
+                  src={item.image ?? ""}
+                  alt={item.name ?? "name"}
                   height={216}
                   width={216}
                 />
               </div>
-              <HeadText content={item.name} />
-              <ParaText content={item.description} />
+              <HeadText content={item.name ?? "name"} />
+              <ParaText content={item.description ?? "description"} />
             </div>
           ))}
         </Flex>

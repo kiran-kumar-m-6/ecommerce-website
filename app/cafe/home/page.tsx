@@ -10,6 +10,8 @@ import BluThirdPartySection from "@/components/organisms/BluThirdPartySection/Bl
 import CartPage from "@/components/pages/CartPage/CartPage";
 import { Accordion } from "../pages/Accordion/Accordion";
 import { AccordionData } from "@/Data/AccordionData/AccordionData";
+import { ProductParallaxData } from "@/Data/ProductParallaxData/ProductParallaxData";
+import { ProductParallax } from "../pages/Product_Parallax/ProductParallax";
 
 export default function CafeHome() {
   const [cartView, setCartView] = useState(false);
@@ -21,6 +23,7 @@ export default function CafeHome() {
       <ProductGrid data={productData} />
       <CartPage open={cartView} onClose={() => setCartView(false)} />
       <BluThirdPartySection />
+      <ProductParallax data={ProductParallaxData} />
       <Accordion data={AccordionData} />
     </div>
   );

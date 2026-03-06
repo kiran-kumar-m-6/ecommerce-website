@@ -23,7 +23,9 @@ export const TodayWeather = ({ location, weather, loading }: Props) => {
   const currentWeather = weather.current()!;
   const temperature = Math.floor(currentWeather.variables(0)!.value());
   const utcOffsetSeconds = weather.utcOffsetSeconds();
-  const apiDate = new Date((Number(currentWeather.time()) + utcOffsetSeconds) * 1000);
+  const apiDate = new Date(
+    (Number(currentWeather.time()) + utcOffsetSeconds) * 1000,
+  );
   const day = apiDate.toLocaleDateString("en-US", { weekday: "long" });
   const date = apiDate.toLocaleDateString("en-US", {
     day: "2-digit",

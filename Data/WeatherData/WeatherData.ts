@@ -161,7 +161,6 @@ export const HourlyForeCastData = [
   },
 ];
 
-
 export const WeatherMetricsData = [
   {
     metricType: "Feels Like",

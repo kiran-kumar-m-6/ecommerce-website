@@ -9,12 +9,14 @@ type Props = {
 };
 
 export default function BulletPoints({ data }: Props) {
+  if(!data) return;
+  
   return (
     <div>
-      {data.map((item, index) => (
+      {(data ?? []).map((item, index) => (
         <div key={index}>
           <ParaText
-            content={`• ${item.point}`}
+            content={`• ${item.point ?? "text"}`}
             className="text-sky-950 text-3xl py-2"
           />
         </div>

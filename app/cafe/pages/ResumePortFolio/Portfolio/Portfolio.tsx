@@ -1,8 +1,8 @@
 import { Icon } from "@/components/atom";
 import {
   PortfolioCategoryProps,
-  PortfolioProps
-} from "@/Data/Type/PortFolio/PortFolioTypes"; 
+  PortfolioProps,
+} from "@/Data/Type/PortFolio/PortFolioTypes";
 
 type Props = {
   data: PortfolioProps[];

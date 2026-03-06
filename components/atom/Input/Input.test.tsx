@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Input from "./Input";
+import { Input } from "./Input";
 import { expect, test } from "vitest";
 import { describe, beforeEach } from "vitest";
 

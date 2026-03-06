@@ -21,18 +21,16 @@ export const Accordion = ({ data }: Props) => {
   if (!data) return null;
 
   return (
-    <div className="p-6 md:p-16">
+    <div className="p-6 md:p-16" data-testid="accordion-page">
       <div className="w-full max-w-5xl mx-auto border-y border-gray-300">
         {data.map((item) => (
-          <div key={item.id} className="border-b border-gray-300">
+          <div key={item.id} className="border-b border-gray-300 last:border-0">
             <button
               onClick={() => toggleSwitch(item.id)}
               className="w-full flex justify-between items-center py-4 text-left text-blue-950 uppercase"
             >
               <h1 className="font-extrabold text-2xl">{item.question}</h1>
-              <span className="text-3xl">
-                {openId === item.id ? "-" : "+"}
-              </span>
+              <span className="text-3xl">{openId === item.id ? "-" : "+"}</span>
             </button>
             <div
               className={`overflow-hidden ${

@@ -42,4 +42,4 @@ export type DailyForeCastType = {
 
 export type WeatherMetricsType = {
   metricType: string;
-}
+};

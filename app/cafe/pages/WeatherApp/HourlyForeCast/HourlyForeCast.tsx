@@ -3,7 +3,6 @@ import { useMemo, useState } from "react";
 import type { WeatherApiResponse } from "@openmeteo/sdk/weather-api-response";
 import { Flex, Icon } from "@/components/atom";
 
-
 type Props = {
   location?: {
     city: string;
@@ -29,11 +28,11 @@ const SKELTON_COUNT = 8;
 const mapCodeToIcon = (code: number): string => {
   const rules = [
     { condition: code === 0, icon: "/icon-sunny.webp" },
-    { condition: code <= 3,  icon: "/icon-partly-cloudy.webp" },
+    { condition: code <= 3, icon: "/icon-partly-cloudy.webp" },
     { condition: code <= 67, icon: "/icon-rain.webp" },
   ];
 
-  return rules.find(rule => rule.condition)?.icon ?? "/icon-overcast.webp";
+  return rules.find((rule) => rule.condition)?.icon ?? "/icon-overcast.webp";
 };
 
 export const HourlyForeCast = ({ weather, loading }: Props) => {
@@ -44,11 +43,13 @@ export const HourlyForeCast = ({ weather, loading }: Props) => {
   const startTime = hourlyTemperature ? Number(hourlyTemperature.time()) : 0;
   const endTime = hourlyTemperature ? Number(hourlyTemperature.timeEnd()) : 0;
   const intervalSeconds = hourlyTemperature ? hourlyTemperature.interval() : 0;
-  const temperature =
-  Array.from(hourlyTemperature?.variables?.(0)?.valuesArray?.() ?? []);
+  const temperature = Array.from(
+    hourlyTemperature?.variables?.(0)?.valuesArray?.() ?? [],
+  );
 
-const setIcons =
-  Array.from(hourlyTemperature?.variables?.(1)?.valuesArray?.() ?? []);
+  const setIcons = Array.from(
+    hourlyTemperature?.variables?.(1)?.valuesArray?.() ?? [],
+  );
 
   const totalHours =
     startTime != 0 && endTime != 0 && intervalSeconds
@@ -73,10 +74,8 @@ const setIcons =
     return result;
   }, [times]);
 
-
   if (loading || !weather) {
     return (
-      
       <div className="max-h-[610px]">
         <div className="bg-gray-700 rounded-lg py-5 px-4 min-w-[300px] animate-pulse">
           <Flex className="justify-between">
@@ -90,7 +89,7 @@ const setIcons =
       </div>
     );
   }
-  
+
   const selectedIndices = hourlyTemperatureByDay[selectedDay] ?? [];
 
   return (

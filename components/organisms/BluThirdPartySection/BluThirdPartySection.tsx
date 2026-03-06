@@ -8,7 +8,7 @@ export default function BluThirdPartySection() {
   const [values, setValues] = useState(1);
 
   return (
-    <div className="p-6 md:p-16">
+    <div className="p-6 md:p-16" data-testid="thirdpary-page">
       <div className="bg-gradient-to-b from-[#0b145a] to-[#0a2a88] py-16">
         <Flex className="flex-col items-center gap-4">
           <HeadText

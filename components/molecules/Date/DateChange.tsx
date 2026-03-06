@@ -1,9 +1,6 @@
 import { useState } from "react";
-import Button from "@/components/atom/Button/Button";
-import Input from "@/components/atom/Input/Input";
 import { useDate } from "@/hook/useDate";
-import ParaText from "@/components/atom/ParaText/ParaText";
-import Flex from "@/components/atom/Flex/Flex";
+import { Button, Input, ParaText, Flex } from "@/components/atom";
 
 export default function DateChange() {
   const [inputDate, setInputDate] = useState("");

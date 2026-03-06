@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { fn } from "storybook/test";
-import CarouselDot from "./CarouselDot";
+import { CarouselDot } from "./CarouselDot";
 
 const meta = {
   title: "Carousel/Dots",
@@ -28,7 +28,6 @@ export const Active: Story = {
   args: {
     active: true,
     activeColor: "bg-black",
-    clas: "",
   },
 };
 
@@ -36,6 +35,5 @@ export const NotActice: Story = {
   args: {
     active: false,
     notActive: "bg-gray-300",
-    clas: "",
   },
 };

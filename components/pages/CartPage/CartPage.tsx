@@ -24,6 +24,7 @@ export default function CartPage({ open, onClose }: Props) {
     <div
       className="fixed h-screen w-full transform bg-white px-4 py-3 transition md:w-[406px] lg:w-[500px] overflow-auto right-0 top-0 opacity-100 duration-1000 ease-in-out z-50"
       ref={cartPage}
+      data-testid="cart-page"
     >
       <Flex className="justify-between items-center p-7 border-b border-b-gray-300">
         <HeadText
@@ -45,7 +46,10 @@ export default function CartPage({ open, onClose }: Props) {
 
       <div className="p-4">
         {cart.length === 0 ? (
-          <div className="grid justify-center items-center p-40 md:p-0">
+          <div
+            className="grid justify-center items-center p-40 md:p-0"
+            data-testid="cart-not-available"
+          >
             <HeadText
               content="YOUR BASKET IS EMPTY"
               className="text-sky-700 text-4xl text-center font-extrabold"
@@ -64,6 +68,7 @@ export default function CartPage({ open, onClose }: Props) {
             <Flex
               key={product.id ?? index}
               className="rounded-lg border-2 p-4 mb-3"
+              data-testid="cart-available"
             >
               <Icon
                 src={product.image ?? ""}

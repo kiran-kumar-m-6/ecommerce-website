@@ -16,7 +16,10 @@ type Props = {
 
 export default function NavProductsGrid({ data, className }: Props) {
   return (
-    <Flex className={`gap-10 p-10 cursor-pointer ${className}`}>
+    <Flex
+      className={`gap-10 p-10 cursor-pointer ${className}`}
+      data-testid="navproducts-page"
+    >
       {data.map((item, index) => (
         <div key={item.heading ?? index} className="grid gap-2 hover:scale-105">
           <Flex className="justify-center">

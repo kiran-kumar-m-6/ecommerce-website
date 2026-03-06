@@ -1,5 +1,5 @@
 import { Button, Flex } from "@/components/atom";
-import { MyPlansProps } from "@/Data/Type/PortFolio/PortFolioTypes"; 
+import { MyPlansProps } from "@/Data/Type/PortFolio/PortFolioTypes";
 
 type Props = {
   data: MyPlansProps[];

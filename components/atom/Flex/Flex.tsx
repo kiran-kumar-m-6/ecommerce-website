@@ -1,11 +1,13 @@
-import { ReactNode } from "react";
+import { ReactNode, HTMLAttributes } from "react";
 
-type FlexProps = {
+type FlexProps = HTMLAttributes<HTMLDivElement> & {
   children?: ReactNode;
-  className?: string;
-  onClick?: () => void;
 };
 
-export function Flex({ children, className }: FlexProps) {
-  return <div className={`flex m-0 p-0 ${className} `}>{children}</div>;
+export function Flex({ children, className, ...props }: FlexProps) {
+  return (
+    <div className={`flex m-0 p-0 ${className ?? ""}`} {...props}>
+      {children}
+    </div>
+  );
 }

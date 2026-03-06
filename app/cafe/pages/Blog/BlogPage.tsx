@@ -8,16 +8,20 @@ type Props = {
 
 export default function BlogPage({ data }: Props) {
   return (
-    <div>
+    <div data-testid="blog-page">
       <div>
         <HeadText
           content="VAPE LIQUIDS & FLAVOURS"
           className="text-5xl text-blue-950 text-center py-6"
         />
-        <Flex className="flex-wrap justify-center gap-20 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 py-6 mx-auto">
+        <Flex
+          className="flex-wrap justify-center gap-20 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 py-6 mx-auto"
+          data-testid="blog-flexblogs"
+        >
           {data.map((blog, index) => (
             <Flex
               key={blog.id ?? index}
+              data-testid="blog-card"
               className="
                     transform-gpu
                     w-[350px]
@@ -36,7 +40,7 @@ export default function BlogPage({ data }: Props) {
                   alt={blog.heading || "Blog"}
                   width={600}
                   height={450}
-                  className="object-cover w-full  aspect-[16/9] rounded-lg hover:rounded-b-none"
+                  className="object-cover w-full aspect-[16/9] rounded-lg hover:rounded-b-none"
                 />
               </div>
               <div className="px-4 pt-6 pb-0 m-0 grid justify-start">

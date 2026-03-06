@@ -7,7 +7,7 @@ interface TextProps {
 export function HeadText({ content, className, onClick }: TextProps) {
   return (
     <h1
-      className={`text-black font-bold font-sans m-0 p-0 ${className}`}
+      className={`font-bold font-sans m-0 p-0 ${className}`}
       onClick={onClick}
     >
       {content}

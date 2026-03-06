@@ -3,7 +3,6 @@ import type { WeatherApiResponse } from "@openmeteo/sdk/weather-api-response";
 import { Flex } from "@/components/atom";
 import { WeatherMetricsType } from "@/Data/Type/WeatherApp/WeatherAppTypes";
 
-
 type Props = {
   weather?: WeatherApiResponse;
   loading: boolean;
@@ -11,7 +10,6 @@ type Props = {
 };
 
 export const WeatherMetrics = ({ weather, loading, weatherMetrics }: Props) => {
-
   const SKELTON_COUNT = weatherMetrics?.length ?? 4;
 
   if (loading || !weather) {
@@ -28,7 +26,9 @@ export const WeatherMetrics = ({ weather, loading, weatherMetrics }: Props) => {
   }
 
   const currentWeather = weather.current?.();
-  const weatherFeelsLike = Math.round(currentWeather?.variables?.(0)?.value?.() ?? 0);
+  const weatherFeelsLike = Math.round(
+    currentWeather?.variables?.(0)?.value?.() ?? 0,
+  );
   const humidityArr = weather.hourly?.()?.variables(0)?.valuesArray?.();
   const humidity = humidityArr?.[0] != null ? Math.round(humidityArr[0]) : 0;
   const wind = Math.round(currentWeather?.variables?.(1)?.value?.() ?? 0);

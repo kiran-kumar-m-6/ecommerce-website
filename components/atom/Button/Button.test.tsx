@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import Button from "./Button";
 import { beforeEach, expect, test } from "vitest";
 import { describe } from "vitest";
+import { Button } from "./Button";
 
 describe("Button Component", () => {
   beforeEach(() => {

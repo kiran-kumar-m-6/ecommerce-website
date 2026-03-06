@@ -1,5 +1,5 @@
 import { Icon } from "@/components/atom";
-import { RecommendationsType } from "@/Data/Type/PortFolio/PortFolioTypes"; 
+import { RecommendationsType } from "@/Data/Type/PortFolio/PortFolioTypes";
 
 type Props = {
   data: RecommendationsType[];

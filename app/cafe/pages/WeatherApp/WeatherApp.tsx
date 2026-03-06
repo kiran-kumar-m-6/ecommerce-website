@@ -43,22 +43,25 @@ export const WeatherApp = () => {
   const [city, setCity] = useState("Bengaluru");
 
   const { data, isLoading, error } = useQuery<{
-  location: {
-    latitude: number;
-    longitude: number;
-    city: string;
-    country: string;
-  };
-  weather: WeatherApiResponse;
-}>({
-  queryKey: ["weather", city],
-  queryFn: async () => {
-    const getLocation = await geocodeCity(city);
-    const weather = await fetchWeather(getLocation.latitude, getLocation.longitude);
-    return { location: getLocation, weather };
-  },
-});
-  
+    location: {
+      latitude: number;
+      longitude: number;
+      city: string;
+      country: string;
+    };
+    weather: WeatherApiResponse;
+  }>({
+    queryKey: ["weather", city],
+    queryFn: async () => {
+      const getLocation = await geocodeCity(city);
+      const weather = await fetchWeather(
+        getLocation.latitude,
+        getLocation.longitude,
+      );
+      return { location: getLocation, weather };
+    },
+  });
+
   return (
     <div className="bg-[#0a0e42] min-h-screen w-full">
       <NavBar data={NavBarData} />

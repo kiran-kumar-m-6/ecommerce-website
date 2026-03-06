@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { fn } from "storybook/test";
-import CarouselArrows from "./CarouselArrows";
+import { CarouselArrows } from "./CarouselArrows";
 
 const meta = {
   title: "Carousel/Arrows",
