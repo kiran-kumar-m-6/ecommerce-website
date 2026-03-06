@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const Protected_Routes = ["/cafe/dashboard", "/cafe/profile", "/cafe/settings"];
+const Protected_Routes = [
+    "/cafe/dashboard",
+    "/cafe/profile",
+    "/cafe/settings"
+];
 
 export function middleware(request: NextRequest) {
   const authCookie = request.cookies.get("auth");

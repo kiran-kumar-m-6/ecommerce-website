@@ -1,12 +1,10 @@
 import { Flex } from "@/components/atom";
-import CafeLoginOrganism from "@/components/pages/CafeComponent/CafeLoginOrganism";
+import CafeLoginPage from "@/components/pages/CafeLoginPage/CafeLoginPage";
 
 export default function CafeLoginComponent() {
   return (
     <Flex className="justify-center items-center h-screen">
-      <div className="rounded-xl shadow-lg p-8 bg-white">
-        <CafeLoginOrganism />
-      </div>
+      <CafeLoginPage />
     </Flex>
   );
 }
